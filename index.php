@@ -7,21 +7,6 @@ class Form {
         $this->errorCatalog = $errorCatalog;
     }
 
-    // Return array of empty inputs
-    public function getEmptyInputs(array $data, array $requiredInputNames): array {
-        $empty = [];
-        foreach ($requiredInputNames as $inputName) {
-            if (empty($data[$inputName])) {
-                $empty[] = $inputName;
-            }
-        }
-        if (!empty($empty)) {
-            // General message, no specific input name
-            $this->setError('EMPTY_INPUTS');
-        }
-        return $empty;
-    }
-
     // Return array of inputs that fail regex
     public function getRegexMismatchInputs(array $data, array $inputNames, string $pattern): array {
         $invalid = [];
